@@ -1,4 +1,5 @@
-import AWS from "@aws-sdk/client-dynamodb";
+
+import AWS from "aws-sdk";
 
 const client = new AWS.DynamoDB.DocumentClient();
 
