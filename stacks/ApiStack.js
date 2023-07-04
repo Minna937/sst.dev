@@ -10,6 +10,7 @@ export function ApiStack({ stack, app }) {
       authorizer: "iam",
       function: {
         bind: [table],
+        STRIPE_SECTRECT_KEY:process.env.STRIPE_SECTRECT_KEY,
       },
     },
     routes: {
