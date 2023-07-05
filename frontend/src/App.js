@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import "./App.css";
+import Routes from "./Routes";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         <Navbar.Brand className="fw-bold text-muted">Scratch</Navbar.Brand>
         <Navbar.Toggle />
       </Navbar>
+      <Routes />
     </div>
   );
 }
