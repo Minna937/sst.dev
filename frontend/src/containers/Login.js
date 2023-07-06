@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Login() {
     const nav = useNavigate();
+    const [isLoading, setIsLoading] = useState(false);
     const { userHasAuthenticated } = useAppContext();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -18,15 +19,17 @@ export default function Login() {
 
     async function handleSubmit(event) {
         event.preventDefault();
-      
+        setIsLoading(true);
+
         try {
-          await Auth.signIn(email, password);
-          userHasAuthenticated(true);
-          nav("/");
+            await Auth.signIn(email, password);
+            userHasAuthenticated(true);
+            nav("/");
         } catch (e) {
-          alert(e.message);
+            alert(e.message);
+            setIsLoading(false);
         }
-      }
+    }
 
     return (
         <div className="Login">
