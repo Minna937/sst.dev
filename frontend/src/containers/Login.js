@@ -4,8 +4,10 @@ import Button from "react-bootstrap/Button";
 import "./Login.css";
 import { Auth } from "aws-amplify";
 import { useAppContext } from "../lib/contextLib";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+    const nav = useNavigate();
     const { userHasAuthenticated } = useAppContext();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -20,6 +22,7 @@ export default function Login() {
         try {
           await Auth.signIn(email, password);
           userHasAuthenticated(true);
+          nav("/");
         } catch (e) {
           alert(e.message);
         }
