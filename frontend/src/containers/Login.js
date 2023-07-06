@@ -3,8 +3,10 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./Login.css";
 import { Auth } from "aws-amplify";
+import { useAppContext } from "../lib/contextLib";
 
 export default function Login() {
+    const { userHasAuthenticated } = useAppContext();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -16,8 +18,8 @@ export default function Login() {
         event.preventDefault();
         try {
             await Auth.signIn(email, password);
-            alert("Logged in");
-        } catch (e){
+            userHasAuthenticated(true);
+        } catch (e) {
             alert(e.message);
         }
     }
