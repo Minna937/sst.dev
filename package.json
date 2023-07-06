@@ -25,6 +25,7 @@
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.360.0",
     "@aws-sdk/lib-dynamodb": "^3.360.0",
-    "stripe": "^12.11.0"
+    "stripe": "^12.11.0",
+    "@babel/plugin-proposal-private-property-in-object": "7.21.11"
   }
 }

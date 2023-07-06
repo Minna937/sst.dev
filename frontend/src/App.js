@@ -9,9 +9,9 @@ import { AppContext } from "./lib/contextLib";
 function App() {
   const [isAuthenticated, userHasAuthenticated] = useState(false);
 
-function handleLogOut(){
-  userHasAuthenticated(false);
-}
+  function handleLogOut() {
+    userHasAuthenticated(false);
+  }
 
   return (
     <div className="App container py-3">
