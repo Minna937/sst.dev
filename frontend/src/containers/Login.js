@@ -16,13 +16,14 @@ export default function Login() {
 
     async function handleSubmit(event) {
         event.preventDefault();
+      
         try {
-            await Auth.signIn(email, password);
-            userHasAuthenticated(true);
+          await Auth.signIn(email, password);
+          alert("Logged in");
         } catch (e) {
-            alert(e.message);
+          alert(e.message);
         }
-    }
+      }
 
     return (
         <div className="Login">
