@@ -19,7 +19,7 @@ export default function Login() {
       
         try {
           await Auth.signIn(email, password);
-          alert("Logged in");
+          userHasAuthenticated(true);
         } catch (e) {
           alert(e.message);
         }

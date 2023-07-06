@@ -9,7 +9,7 @@ import { AppContext } from "./lib/contextLib";
 function App() {
   const [isAuthenticated, userHasAuthenticated] = useState(false);
 
-  function handleLogOut() {
+  function handleLogout() {
     userHasAuthenticated(false);
   }
 
@@ -24,17 +24,18 @@ function App() {
           <Nav activeKey={window.location.pathname}>
 
             {isAuthenticated ? (
-              <Nav.Link onClick={handleLogOut}>Logout</Nav.Link>)
-              : (
-                <>
-                  <LinkContainer to="/signup">
-                    <Nav.Link>Signup</Nav.Link>
-                  </LinkContainer>
-                  <LinkContainer to="/login">
-                    <Nav.Link>Login</Nav.Link>
-                  </LinkContainer>
-                </>
-              )}
+              <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+            ) : (
+              <>
+                <LinkContainer to="/signup">
+                  <Nav.Link>Signup</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to="/login">
+                  <Nav.Link>Login</Nav.Link>
+                </LinkContainer>
+              </>
+            )}
+
           </Nav>
         </Navbar.Collapse>
       </Navbar>
