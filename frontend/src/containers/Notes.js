@@ -68,6 +68,10 @@ export default function Notes() {
         setIsLoading(true);
     }
 
+    function deleteNote() {
+        return API.del("notes", `/notes/${id}`);
+    }
+
     async function handleDelete(event) {
         event.preventDefault();
 
@@ -80,6 +84,14 @@ export default function Notes() {
         }
 
         setIsDeleting(true);
+
+        try {
+            await deleteNote();
+            nav("/");
+        } catch (e) {
+            onError(e);
+            setIsDeleting(false);
+        }
     }
 
     return (
