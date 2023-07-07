@@ -41,12 +41,12 @@ export default function NewNote() {
             onError(e);
             setIsLoading(false);
         }
+    }
 
-        function createNote(note) {
-            return API.post("notes", "/notes", {
-                body:note,
-            });
-        }
+    function createNote(note) {
+        return API.post("notes", "/notes", {
+            body: note,
+        });
     }
 
     return (
