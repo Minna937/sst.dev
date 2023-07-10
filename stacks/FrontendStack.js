@@ -10,6 +10,13 @@ export function FrontendStack({ stack, app }) {
 
     //define our React App
     const site = new StaticSite(stack, "ReactSite", {
+        customDomain:
+            app.stage === "prod"
+                ? {
+                    domainName: "serverless-note-app.com",
+                    domainAlias: "www.serverless-note-app.com",
+                }
+                : undefined,
         path: "frontend",
         buildOutput: "build",
         buildCommand: "npm run build",
@@ -21,10 +28,9 @@ export function FrontendStack({ stack, app }) {
             REACT_APP_USER_POOL_ID: auth.userPoolId,
             REACT_APP_IDENTITY_POOL_ID: auth.cognitoIdentityPoolId,
             REACT_APP_USER_POOL_CLIENT_ID: auth.userPoolClientId,
-          },
+        },
     });
-
     stack.addOutputs({
-        SiteUrl:site.url || "http://localhost:3000",
-    })
+        SiteUrl: site.customDomainUrl || site.url || "http://localhost:3000",
+    });
 }
