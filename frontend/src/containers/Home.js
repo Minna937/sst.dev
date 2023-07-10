@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { BsPencilSquare } from "react-icons/bs";
 import ListGroup from "react-bootstrap/ListGroup";
+import { LinkContainer } from "react-router-bootstrap";
 import { useAppContext } from "../lib/contextLib";
 import { onError } from "../lib/errorLib";
-import "./Home.css";
 import { API } from "aws-amplify";
-import { BsPencilSquare } from "react-icons/bs";
-import { LinkContainer } from "react-router-bootstrap";
+import "./Home.css";
 
 export default function Home() {
     const [notes, setNotes] = useState([]);
@@ -27,12 +27,14 @@ export default function Home() {
 
             setIsLoading(false);
         }
+
         onLoad();
     }, [isAuthenticated]);
 
     function loadNotes() {
         return API.get("notes", "/notes");
     }
+
     function renderNotesList(notes) {
         return (
             <>
@@ -45,7 +47,9 @@ export default function Home() {
                 {notes.map(({ noteId, content, createdAt }) => (
                     <LinkContainer key={noteId} to={`/notes/${noteId}`}>
                         <ListGroup.Item action className="text-nowrap text-truncate">
-                            <span className="fw-bold">{content.trim().split("\n")[0]}</span>
+                            <span className="fw-bold">
+                                {content.trim().split("\n")[0]}
+                            </span>
                             <br />
                             <span className="text-muted">
                                 Created: {new Date(createdAt).toLocaleString()}
@@ -56,6 +60,7 @@ export default function Home() {
             </>
         );
     }
+
     function renderLander() {
         return (
             <div className="lander">
