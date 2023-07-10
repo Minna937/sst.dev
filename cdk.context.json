@@ -1,0 +1,6 @@
+{
+  "hosted-zone:account=708601261993:domainName=serverless-note-app.com:region=us-east-1": {
+    "Id": "/hostedzone/Z0319254CQJXRYOS1T3B",
+    "Name": "serverless-note-app.com."
+  }
+}
