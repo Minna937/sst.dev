@@ -6,6 +6,7 @@ import { useAppContext } from "../lib/contextLib";
 import { onError } from "../lib/errorLib";
 import { API } from "aws-amplify";
 import "./Home.css";
+import LoaderButton from "../components/LoaderButton";
 
 export default function Home() {
     const [notes, setNotes] = useState([]);
@@ -63,10 +64,30 @@ export default function Home() {
 
     function renderLander() {
         return (
-            <div className="lander">
-                <h1>Scratch</h1>
-                <p className="text-muted">A simple note taking app</p>
-            </div>
+            <>
+                <div className="lander">
+                    <h1>Scratch</h1>
+                    <p className="text-muted">A simple note taking app</p>
+
+                </div>
+                <div className="button d-flex justify-content-center gap-2">
+                    <LoaderButton
+                        size="lg"
+                        href="/login"
+                        type="submit"
+                    >
+                        Login
+                    </LoaderButton>
+                    <LoaderButton
+                        size="lg"
+                        type="submit"
+                        href="/signup"
+                        variant="success"
+                    >
+                        Signup
+                    </LoaderButton>
+                </div>
+            </>
         );
     }
 
