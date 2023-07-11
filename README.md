@@ -30,7 +30,7 @@ This repo is a full-stack serverless app built with [SST](https://github.com/ser
 - The `packages/` directory contains the Lambda functions that power the CRUD API.
 - The `frontend/` directory contains the React app.
 
-It's a single-page React app powered by a serverless CRUD API. It also cover how add user authentication, handle file uploads, and process credit card payments with Stripe.
+It's a single-page React app powered by a serverless CRUD API. It also covers user authentication, handles file uploads, and processes credit card payments with Stripe.
 
 ### Usage
 
