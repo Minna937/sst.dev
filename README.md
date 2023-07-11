@@ -1,5 +1,5 @@
 # Scratch
- a full-stack serverless app built with SST, Using React.js, AWS Lambda, API Gateway, DynamoDB, and Cognito.
+ a full-stack serverless note-taking app built with SST, Using React.js, AWS Lambda, API Gateway, DynamoDB, and Cognito.
 
 Live site here: https://serverless-note-app.com/
 
